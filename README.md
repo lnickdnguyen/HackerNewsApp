@@ -1,4 +1,4 @@
-# Hacker News Viewer
+# Hacker News App
 
 Full-stack app using Angular + .NET Core + Hacker News API
 
