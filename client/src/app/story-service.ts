@@ -10,7 +10,7 @@ export interface Story {
 
 @Injectable({ providedIn: 'root' })
 export class StoryService {
-  private apiUrl = 'https://localhost:44372/api/hackernews/getneweststories';
+  private apiUrl = 'https://localhost:5001/api/hackernews/getneweststories';
 
   constructor(private http: HttpClient) {}
 
