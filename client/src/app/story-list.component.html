@@ -1,0 +1,41 @@
+<div class="page-wrapper">
+  <header class="app-header">
+    <h1>📰 Hacker News Reader</h1>
+    <p>Browse the latest stories</p>
+  </header>
+
+  <div class="container">
+    <div class="search-bar">
+      <input
+        type="text"
+        name="search"
+        [(ngModel)]="searchTerm"
+        (keyup.enter)="onSearch(searchTerm)"
+        placeholder="Search stories..."
+        [disabled]="loading"
+      />
+      <button (click)="onSearch(searchTerm)" [disabled]="loading">
+        🔍 Search
+      </button>
+    </div>
+
+    <div class="spinner" *ngIf="loading">
+      <div class="loader"></div>
+    </div>
+
+    <div *ngIf="!loading">
+      <ul>
+        <li *ngFor="let story of stories">
+          <a *ngIf="story.url" [href]="story.url" target="_blank">{{ story.title }}</a>
+          <span *ngIf="!story.url">{{ story.title }}</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="pagination">
+      <button (click)="prevPage()" [disabled]="page === 1 || loading">Prev</button>
+      <span>Page {{ page }}</span>
+      <button (click)="nextPage()" [disabled]="loading">Next</button>
+    </div>
+  </div>
+</div>
