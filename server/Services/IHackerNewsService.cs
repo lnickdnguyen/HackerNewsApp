@@ -4,6 +4,6 @@
 
     public interface IHackerNewsService
     {
-        Task<List<NewsStory>> GetNewestStoriesAsync(int page, int pageSize, string? searchTerm = null);
+        Task<List<NewsStory>> GetNewestStoriesAsync(int page, int pageSize, string searchTerm = null);
     }
 }
